@@ -58,6 +58,14 @@
             </Grid>
         </Border>
         <local:Sidebar MaxWidth="400" Grid.Column="0" Grid.RowSpan="2">
+            <Border Padding="5">
+                <StackPanel Margin="0 30 0 0">
+                    <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource NewPath}" Text="Add new Plan"/>
+                    <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource OpenPath}" Text="Open existing Plan"/>
+                    <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource SavePath}" Text="Save"/>
+                    <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource SaveAllPath}" Text="Save all"/>
+                </StackPanel>
+            </Border>
         </local:Sidebar>
     </Grid>
 </Window>
