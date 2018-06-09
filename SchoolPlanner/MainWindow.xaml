@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:SchoolPlanner"
         mc:Ignorable="d"
         WindowStyle="None"
-        AllowsTransparency="True"
         MinHeight="350"
         MinWidth="600"
         Title="MainWindow" Height="350" Width="525">
@@ -33,14 +32,14 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource SettingsButton}" Width="50">Settings</Button>
-                    <Button Style="{StaticResource InfoButton}" Width="50">Info</Button>
+                    <Button Style="{StaticResource SettingsButton}" >Settings</Button>
+                    <Button Style="{StaticResource InfoButton}">Info</Button>
                 </StackPanel>
                 <TextBlock Style="{StaticResource BaseFont}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Text="SchoolPlanner"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button Style="{StaticResource CloseButton}" Width="50">Close</Button>
-                    <Button Style="{StaticResource MaximizeButton}" Width="50">Maximize</Button>
-                    <Button Style="{StaticResource MinimizeButton}" Width="50">Minimize</Button>
+                    <Button Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}">Close</Button>
+                    <Button Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}">Maximize</Button>
+                    <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MinimizeButton}">Minimize</Button>
                 </StackPanel>
             </Grid>
         </Border>
