@@ -1,7 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:SchoolPlanner">
     <Path x:Key="MaximizeIcon" Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" Fill="{StaticResource CaptionIconForegroundBrush}" />
     <Path x:Key="RestoreIcon" Data="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z" Fill="{StaticResource CaptionIconForegroundBrush}" />
     <Path x:Key="HamburgerIcon" Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" Fill="{StaticResource CaptionBackgroundBrush}" />
+
+    <System:String x:Key="SaveAllPath">M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z</System:String>
+    <System:String x:Key="SavePath">M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z</System:String>
+    <System:String x:Key="OpenPath">M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8H21L4,8V18L6.14,10H23.21L20.93,18.5C20.7,19.37 19.92,20 19,20Z</System:String>
+    <System:String x:Key="NewPath">M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z</System:String>
+
 </ResourceDictionary>
