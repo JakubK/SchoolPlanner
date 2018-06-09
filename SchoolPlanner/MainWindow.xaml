@@ -8,6 +8,12 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Title="MainWindow" Height="350" Width="525">
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="2"
+            CaptionHeight="40"
+            />
+    </WindowChrome.WindowChrome>
     <Grid Background="{StaticResource FormBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
