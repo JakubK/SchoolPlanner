@@ -10,7 +10,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="Red">
+        <Grid Background="Red"  WindowChrome.IsHitTestVisibleInChrome="True">
             
         </Grid>
     </Grid>
