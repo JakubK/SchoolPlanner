@@ -6,4 +6,9 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="FontSize" Value="16"/>
     </Style>
+    <Style TargetType="{x:Type TextBlock}" x:Key="SidebarHeader">
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
 </ResourceDictionary>

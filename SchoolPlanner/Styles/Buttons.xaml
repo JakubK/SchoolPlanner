@@ -95,4 +95,25 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type Button}" x:Key="HamburgerButton" BasedOn="{StaticResource CaptionButton}">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Canvas Name="canvas" Height="25"  Width="25">
+                            <Path Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" Fill="White" />
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SidebarHamburgerHoverBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

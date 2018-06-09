@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:SchoolPlanner.Styles">
+                    xmlns:local="clr-namespace:SchoolPlanner">
     <Color x:Key="FormBackground">#FAFAFA</Color>
     <SolidColorBrush x:Key="FormBackgroundBrush" Color="{StaticResource FormBackground}"/>
 
@@ -18,4 +18,7 @@
 
     <Color x:Key="SidebarHamburger">#42a5f5</Color>
     <SolidColorBrush x:Key="SidebarHamburgerBrush" Color="{StaticResource SidebarHamburger}"/>
+
+    <Color x:Key="SidebarHamburgerHover">#2196F3</Color>
+    <SolidColorBrush x:Key="SidebarHamburgerHoverBrush" Color="{StaticResource SidebarHamburgerHover}"/>
 </ResourceDictionary>
