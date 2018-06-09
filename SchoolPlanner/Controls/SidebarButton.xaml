@@ -12,7 +12,7 @@
             <ControlTemplate>
                 <StackPanel Orientation="Horizontal" Background="{TemplateBinding Background}">
                     <Canvas Name="canvas" Height="25"  Width="35">
-                        <Path Data="{Binding ElementName=sidebarButton,Path=PathData}" Fill="#616161" />
+                        <Path Data="{Binding ElementName=sidebarButton,Path=PathData}" Fill="{StaticResource SidebarIconFillBrush}" />
                     </Canvas>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=sidebarButton,Path=Text}"/>
                 </StackPanel>

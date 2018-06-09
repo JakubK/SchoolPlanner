@@ -21,4 +21,10 @@
 
     <Color x:Key="SidebarHamburgerHover">#2196F3</Color>
     <SolidColorBrush x:Key="SidebarHamburgerHoverBrush" Color="{StaticResource SidebarHamburgerHover}"/>
+
+    <Color x:Key="SidebarButtonHover">#e0e0e0</Color>
+    <SolidColorBrush x:Key="SidebarButtonHoverBrush" Color="{StaticResource SidebarButtonHover}"/>
+
+    <Color x:Key="SidebarIconFill">#616161</Color>
+    <SolidColorBrush x:Key="SidebarIconFillBrush" Color="{StaticResource SidebarIconFill}"/>
 </ResourceDictionary>
