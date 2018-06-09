@@ -6,15 +6,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace SchoolPlanner.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
         public Window Window;
+
+        private Path MaximizeIcon;
+        private Path RestoreIcon;
+
+        public Path MaximizePath { get; set; }
+
         public MainViewModel(Window w)
         {
             this.Window = w;
+
+            RestoreIcon = (Path)Application.Current.FindResource("RestoreIcon");
+            MaximizeIcon = (Path)Application.Current.FindResource("MaximizeIcon");
+
+            MaximizePath = MaximizeIcon;
 
             this.CloseCommand = new RelayCommand(() => Window.Close());
             this.MaximizeCommand = new RelayCommand(() =>
@@ -30,9 +43,17 @@ namespace SchoolPlanner.ViewModels
             this.StateChangedCommand = new RelayCommand(() =>
             {
                 if (Window.WindowState == WindowState.Maximized)
+                {
                     this.Window.Padding = new Thickness(7);
+                    MaximizePath = RestoreIcon;
+                }
                 else
+                {
                     this.Window.Padding = new Thickness(0);
+                    MaximizePath = MaximizeIcon;
+                }
+
+                OnPropertyChanged(nameof(MaximizePath));
             });
         }
 
