@@ -46,7 +46,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}">
                         <Canvas Name="canvas" Height="25"  Width="25">
-                            <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" Fill="{StaticResource CaptionIconForegroundBrush}" />
+                            <ContentPresenter/>
                         </Canvas>
                     </Border>
                 </ControlTemplate>

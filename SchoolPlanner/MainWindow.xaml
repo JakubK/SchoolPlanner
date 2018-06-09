@@ -50,9 +50,9 @@
                 </StackPanel>
                 <TextBlock Style="{StaticResource BaseFont}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Text="SchoolPlanner"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}">Close</Button>
-                    <Button Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}">Maximize</Button>
-                    <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MinimizeButton}">Minimize</Button>
+                    <Button Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}"></Button>
+                    <Button Content="{Binding MaximizePath}" Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}"></Button>
+                    <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MinimizeButton}"></Button>
                 </StackPanel>
             </Grid>
         </Border>
