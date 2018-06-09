@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPlanner"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         WindowStyle="None"
         MinHeight="350"
@@ -15,6 +16,18 @@
             CaptionHeight="40"
             />
     </WindowChrome.WindowChrome>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="StateChanged">
+            <i:InvokeCommandAction  Command="{Binding StateChangedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.Template>
+        <ControlTemplate TargetType="{x:Type Window}">
+            <Border Background="White" Padding="{TemplateBinding Padding}">
+                <ContentPresenter />
+            </Border>
+        </ControlTemplate>
+    </Window.Template>
     <Grid Background="{StaticResource FormBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

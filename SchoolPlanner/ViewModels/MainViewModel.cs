@@ -26,10 +26,20 @@ namespace SchoolPlanner.ViewModels
                 }
             );
             this.MinimizeCommand = new RelayCommand(() => Window.WindowState = WindowState.Minimized);
+
+            this.StateChangedCommand = new RelayCommand(() =>
+            {
+                if (Window.WindowState == WindowState.Maximized)
+                    this.Window.Padding = new Thickness(7);
+                else
+                    this.Window.Padding = new Thickness(0);
+            });
         }
 
         public ICommand CloseCommand { get; set; }
         public ICommand MaximizeCommand { get; set; }
         public ICommand MinimizeCommand { get; set; }
+
+        public ICommand StateChangedCommand { get; set; }
     }
 }
