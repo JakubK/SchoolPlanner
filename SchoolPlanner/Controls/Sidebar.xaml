@@ -11,7 +11,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="{StaticResource SidebarHamburgerBrush}" WindowChrome.IsHitTestVisibleInChrome="True">
+        <Grid Background="{StaticResource SidebarHamburgerBrush}">
             <StackPanel Orientation="Horizontal">
                 <Button Command="{Binding ExpandCommand}" Style="{StaticResource HamburgerButton}"/>
                 <TextBlock Margin="10 0 0 0" Style="{StaticResource SidebarHeader}" VerticalAlignment="Center">Menu</TextBlock>
