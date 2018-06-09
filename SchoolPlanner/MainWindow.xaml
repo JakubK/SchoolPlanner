@@ -36,7 +36,7 @@
                     <Button Style="{StaticResource SettingsButton}" Width="50">Settings</Button>
                     <Button Style="{StaticResource InfoButton}" Width="50">Info</Button>
                 </StackPanel>
-                <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">SchoolPlanner</Label>
+                <TextBlock Style="{StaticResource BaseFont}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Text="SchoolPlanner"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <Button Style="{StaticResource CloseButton}" Width="50">Close</Button>
                     <Button Style="{StaticResource MaximizeButton}" Width="50">Maximize</Button>
@@ -44,6 +44,6 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <local:Sidebar  Grid.Column="0" Grid.RowSpan="2"/>
+        <local:Sidebar Grid.Column="0" Grid.RowSpan="2"/>
     </Grid>
 </Window>
