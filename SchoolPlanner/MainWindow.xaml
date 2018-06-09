@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         MinHeight="350"
-        MinWidth="600"
+        MinWidth="780"
         MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}"
         Title="MainWindow" Height="350" Width="525">
     <WindowChrome.WindowChrome>
@@ -57,6 +57,7 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <local:Sidebar Grid.Column="0" Grid.RowSpan="2"/>
+        <local:Sidebar MaxWidth="400" Grid.Column="0" Grid.RowSpan="2">
+        </local:Sidebar>
     </Grid>
 </Window>

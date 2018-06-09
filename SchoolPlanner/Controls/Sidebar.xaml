@@ -4,14 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             x:Name="sidebar"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Width="40" Background="{StaticResource SidebarContentBrush}">
+    <Grid Width="{Binding Width}" Background="{StaticResource SidebarContentBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="{StaticResource SidebarHamburgerBrush}" WindowChrome.IsHitTestVisibleInChrome="True">
-
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding ExpandCommand}" Style="{StaticResource HamburgerButton}"/>
+                <TextBlock Margin="10 0 0 0" Style="{StaticResource SidebarHeader}" VerticalAlignment="Center">Menu</TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ContentPresenter Content="{Binding ElementName=sidebar,Path=Child}"/>
         </Grid>
     </Grid>
 </UserControl>
