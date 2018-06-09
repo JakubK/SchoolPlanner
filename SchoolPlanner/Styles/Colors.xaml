@@ -7,6 +7,15 @@
     <Color x:Key="CaptionBackground">#FFFFFF</Color>
     <SolidColorBrush x:Key="CaptionBackgroundBrush" Color="{StaticResource CaptionBackground}"/>
 
-    <Color x:Key="SidebarHeader">#42A5F5</Color>
-    <SolidColorBrush x:Key="SidebarHeaderBrush" Color="{StaticResource SidebarHeader}"/>
+    <Color x:Key="CaptionIconForeground">#BDBDBD</Color>
+    <SolidColorBrush x:Key="CaptionIconForegroundBrush" Color="{StaticResource CaptionIconForeground}"/>
+
+    <Color x:Key="CaptionButtonHover">#EAEAEA</Color>
+    <SolidColorBrush x:Key="CaptionButtonHoverBrush" Color="{StaticResource CaptionButtonHover}"/>
+    
+    <Color x:Key="SidebarContent">#f5f5f5</Color>
+    <SolidColorBrush x:Key="SidebarContentBrush" Color="{StaticResource SidebarContent}"/>
+
+    <Color x:Key="SidebarHamburger">#42a5f5</Color>
+    <SolidColorBrush x:Key="SidebarHamburgerBrush" Color="{StaticResource SidebarHamburger}"/>
 </ResourceDictionary>
