@@ -17,7 +17,14 @@ namespace SchoolPlanner.ViewModels
             this.Window = w;
 
             this.CloseCommand = new RelayCommand(() => Window.Close());
-            this.MaximizeCommand = new RelayCommand(() => Window.WindowState = WindowState.Maximized);
+            this.MaximizeCommand = new RelayCommand(() =>
+                {
+                    if (Window.WindowState == WindowState.Normal)
+                        Window.WindowState = WindowState.Maximized;
+                    else
+                        Window.WindowState = WindowState.Normal;
+                }
+            );
             this.MinimizeCommand = new RelayCommand(() => Window.WindowState = WindowState.Minimized);
         }
 
