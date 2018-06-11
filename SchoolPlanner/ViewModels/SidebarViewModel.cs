@@ -19,9 +19,15 @@ namespace SchoolPlanner.ViewModels
             ExpandCommand = new RelayCommand(() =>
             {
                 if (Width == Sidebar.MaxWidth)
+                {
                     Width = 40;
+                    Expanded = false;
+                }
                 else
+                {
                     Width = Sidebar.MaxWidth;
+                    Expanded = true;
+                }
             });
         }
 
@@ -33,6 +39,17 @@ namespace SchoolPlanner.ViewModels
             {
                 width = value;
                 OnPropertyChanged(nameof(Width));
+            }
+        }
+
+        private bool expanded = false;
+        public bool Expanded
+        {
+            get { return expanded; }
+            set
+            {
+                expanded = value;
+                OnPropertyChanged(nameof(Expanded));
             }
         }
 
