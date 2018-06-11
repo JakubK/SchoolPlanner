@@ -15,10 +15,10 @@ namespace SchoolPlanner.ViewModels
     {
         public Window Window;
 
-        private Path MaximizeIcon;
-        private Path RestoreIcon;
+        private Path MaximizeIcon, RestoreIcon;
 
         public Path MaximizePath { get; set; }
+
 
         public MainViewModel(Window w)
         {
@@ -55,6 +55,14 @@ namespace SchoolPlanner.ViewModels
 
                 OnPropertyChanged(nameof(MaximizePath));
             });
+
+            Plans = new List<string>();
+
+            Plans.Add("III AI");
+            Plans.Add("III BI");
+            Plans.Add("III CI");
+            Plans.Add("III DI");
+            Plans.Add("I AI");
         }
 
         public ICommand CloseCommand { get; set; }
@@ -62,5 +70,8 @@ namespace SchoolPlanner.ViewModels
         public ICommand MinimizeCommand { get; set; }
 
         public ICommand StateChangedCommand { get; set; }
+
+        public List<string> Plans { get; set; }
+
     }
 }
