@@ -27,4 +27,8 @@
 
     <Color x:Key="SidebarIconFill">#616161</Color>
     <SolidColorBrush x:Key="SidebarIconFillBrush" Color="{StaticResource SidebarIconFill}"/>
+
+    <Color x:Key="PlansListViewItemHover">#ffb74d</Color>
+    <SolidColorBrush x:Key="PlansListViewItemHoverBrush" Color="{StaticResource PlansListViewItemHover}"/>
+
 </ResourceDictionary>
