@@ -13,7 +13,7 @@
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <TextBlock Padding="5 0 5 0" Text="Opened Plans"/>
-            <Button Command="{Binding SwitchItemsCommand}">Switch</Button>
+            <CheckBox Style="{StaticResource SidebarCheckBox}" Command="{Binding SwitchItemsCommand}"/>
         </StackPanel>
         <Separator></Separator>
         <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" Height="{Binding ElementName=plansListView,Path=ListHeight}">

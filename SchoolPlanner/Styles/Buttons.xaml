@@ -128,4 +128,35 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="{x:Type CheckBox}" x:Key="SidebarCheckBox">
+        <Setter Property="Width" Value="10"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <RotateTransform>
+                    <RotateTransform.Angle>90</RotateTransform.Angle>
+                </RotateTransform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Polygon  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Points="0,0 8,5, 0,10" Stroke="Black" Fill="Black">
+                    </Polygon>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform>
+                            <RotateTransform.Angle>0</RotateTransform.Angle>
+                        </RotateTransform>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
