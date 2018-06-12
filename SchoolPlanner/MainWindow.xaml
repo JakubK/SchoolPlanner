@@ -38,7 +38,9 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="1" Height="40" Background="{StaticResource CaptionBackgroundBrush}" Padding="5 5 5 5">
+        <Border Grid.Column="1" Height="40" 
+                Background="{StaticResource CaptionBackgroundBrush}" 
+                Padding="5 5 5 5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -46,15 +48,33 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="{Binding Source={StaticResource SettingsPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
-                    <Button Content="{Binding Source={StaticResource InfoPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding Source={StaticResource SettingsPath}
+                        , Converter={local:StringToGeometryConverter}}"
+                            Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding Source={StaticResource InfoPath}
+                        , Converter={local:StringToGeometryConverter}}"
+                            Style="{StaticResource CaptionButton}"/>
                 </StackPanel>
-                <TextBlock Style="{StaticResource BaseFont}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Text="SchoolPlanner"/>
-                <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button Command="{Binding CloseCommand}" Content="{Binding Source={StaticResource ClosePath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
-                    <Button Content="{Binding MaximizePath}" Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}"></Button>
-                    <Button Command="{Binding MinimizeCommand}" Content="{Binding Source={StaticResource MinimizePath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
-                    <Button Content="{Binding Source={StaticResource SearchPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
+                <TextBlock Style="{StaticResource BaseFont}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Grid.Column="1" Text="SchoolPlanner"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal"
+                            FlowDirection="RightToLeft">
+                    <Button Command="{Binding CloseCommand}"
+                            Content="{Binding Source={StaticResource ClosePath}
+                        ,Converter={local:StringToGeometryConverter}}"
+                            Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding MaximizePath}"
+                            Command="{Binding MaximizeCommand}"
+                            Style="{StaticResource MaximizeButton}"/>
+                    <Button Padding="0 10 0 0" Command="{Binding MinimizeCommand}"
+                            Content="{Binding Source={StaticResource MinimizePath},
+                        Converter={local:StringToGeometryConverter}}"
+                            Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding Source={StaticResource SearchPath},
+                        Converter={local:StringToGeometryConverter}}"
+                            Style="{StaticResource CaptionButton}"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -64,19 +84,32 @@
                     AncestorType={x:Type Window}}}" >
                     <Border Padding="5" >
                         <StackPanel  Margin="0 30 0 0">
-                            <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource NewPath}" Text="Add new Plan"/>
-                            <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource OpenPath}" Text="Open existing Plan"/>
-                            <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource SavePath}" Text="Save"/>
-                            <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource SaveAllPath}" Text="Save all"/>
+                            <local:SidebarButton Style="{StaticResource SidebarButton}"
+                                                 PathData="{StaticResource NewPath}"
+                                                 Text="Add new Plan"/>
+                            <local:SidebarButton Style="{StaticResource SidebarButton}"
+                                                 PathData="{StaticResource OpenPath}"
+                                                 Text="Open existing Plan"/>
+                            <local:SidebarButton Style="{StaticResource SidebarButton}"
+                                                 PathData="{StaticResource SavePath}"
+                                                 Text="Save"/>
+                            <local:SidebarButton Style="{StaticResource SidebarButton}"
+                                                 PathData="{StaticResource SaveAllPath}"
+                                                 Text="Save all"/>
                         </StackPanel>
                     </Border>
                     <local:PlansListView Visibility="{Binding DataContext.Expanded,
                     RelativeSource={RelativeSource FindAncestor, 
-                    AncestorType={x:Type local:Sidebar}}, Converter={local:BoolToVisibilityConverter},UpdateSourceTrigger=PropertyChanged}" ListHeight="200" 
+                    AncestorType={x:Type local:Sidebar}},
+                        Converter={local:BoolToVisibilityConverter},
+                        UpdateSourceTrigger=PropertyChanged}" ListHeight="200" 
                                      ItemSource="{Binding DataContext.Plans,
                     RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type Window}}}"/>
                 </StackPanel>
         </local:Sidebar>
+        <Frame NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
+            
+        </Frame>
     </Grid>
 </Window>
