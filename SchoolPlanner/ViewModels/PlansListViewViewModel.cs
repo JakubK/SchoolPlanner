@@ -10,12 +10,20 @@ namespace SchoolPlanner.ViewModels
 {
     public class PlansListViewViewModel : BaseViewModel
     {
-        private PlansListView PlansListView;
-        public PlansListViewViewModel(PlansListView plansListView)
+        public PlansListViewViewModel()
         {
-            this.PlansListView = plansListView;
+            SwitchItemsCommand = new RelayCommand(() => ListHeight = ListHeight == 200 ? 0 : 200);
+        }
 
-            SwitchItemsCommand = new RelayCommand(() => plansListView.ListHeight = plansListView.ListHeight == 200 ? 0 : 200);
+        private double listHeight = 200;
+        public double ListHeight
+        {
+            get { return listHeight; }
+            set
+            {
+                listHeight = value;
+                OnPropertyChanged(nameof(ListHeight));
+            }
         }
 
         public ICommand SwitchItemsCommand { get; set; }

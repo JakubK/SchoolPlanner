@@ -16,7 +16,7 @@
             <CheckBox Style="{StaticResource SidebarCheckBox}" Command="{Binding SwitchItemsCommand}"/>
         </StackPanel>
         <Separator></Separator>
-        <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" Height="{Binding ElementName=plansListView,Path=ListHeight}">
+        <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" Height="{Binding ListHeight}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource PlansListViewItem}"/>
             </ListView.ItemContainerStyle>

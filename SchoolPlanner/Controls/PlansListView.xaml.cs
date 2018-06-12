@@ -24,7 +24,7 @@ namespace SchoolPlanner
         public PlansListView()
         {
             InitializeComponent();
-            this.DataContext = new PlansListViewViewModel(this);
+            this.DataContext = new PlansListViewViewModel();
         }
 
         public double ListHeight
