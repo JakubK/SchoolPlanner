@@ -15,7 +15,7 @@ namespace SchoolPlanner.ViewModels
             TogglePropertiesCommand = new RelayCommand(() => PropertiesHeight = PropertiesHeight == 300 ? 0 : 300);
         }
 
-        private double propertiesHeight = 300;
+        private double propertiesHeight = 0;
         public double PropertiesHeight
         {
             get { return propertiesHeight; }
@@ -27,6 +27,5 @@ namespace SchoolPlanner.ViewModels
         }
 
         public ICommand TogglePropertiesCommand { get; set; }
-
     }
 }

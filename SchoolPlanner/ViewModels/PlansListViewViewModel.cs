@@ -15,7 +15,7 @@ namespace SchoolPlanner.ViewModels
             SwitchItemsCommand = new RelayCommand(() => ListHeight = ListHeight == 200 ? 0 : 200);
         }
 
-        private double listHeight = 200;
+        private double listHeight = 0;
         public double ListHeight
         {
             get { return listHeight; }
