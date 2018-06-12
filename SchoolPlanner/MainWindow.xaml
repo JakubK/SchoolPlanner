@@ -83,7 +83,7 @@
                     RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type Window}}}" >
                     <Border Padding="5" >
-                        <StackPanel  Margin="0 30 0 0">
+                        <StackPanel  Margin="0 10 0 0">
                             <local:SidebarButton Style="{StaticResource SidebarButton}"
                                                  PathData="{StaticResource NewPath}"
                                                  Text="Add new Plan"/>
@@ -106,7 +106,12 @@
                                      ItemSource="{Binding DataContext.Plans,
                     RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type Window}}}"/>
-                </StackPanel>
+                <local:PropertiesEditor Visibility="{Binding DataContext.Expanded,
+                    RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type local:Sidebar}},
+                        Converter={local:BoolToVisibilityConverter},
+                        UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
         </local:Sidebar>
         <Frame NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
             

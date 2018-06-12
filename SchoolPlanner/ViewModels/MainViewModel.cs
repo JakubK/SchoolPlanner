@@ -62,6 +62,11 @@ namespace SchoolPlanner.ViewModels
             Plans.Add("III BI");
             Plans.Add("III CI");
             Plans.Add("III DI");
+            Plans.Add("III DI");
+            Plans.Add("III DI");
+            Plans.Add("III DI");
+            Plans.Add("III DI");
+
             Plans.Add("I AI");
         }
 
