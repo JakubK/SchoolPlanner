@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         MinHeight="350"
-        MinWidth="780"
+        MinWidth="820"
         MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}"
         Title="MainWindow" Height="350" Width="525">
     <WindowChrome.WindowChrome>
@@ -46,21 +46,24 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource SettingsButton}" >Settings</Button>
-                    <Button Style="{StaticResource InfoButton}">Info</Button>
+                    <Button Content="{Binding Source={StaticResource SettingsPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding Source={StaticResource InfoPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
                 </StackPanel>
                 <TextBlock Style="{StaticResource BaseFont}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Text="SchoolPlanner"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}"></Button>
+                    <Button Command="{Binding CloseCommand}" Content="{Binding Source={StaticResource ClosePath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
                     <Button Content="{Binding MaximizePath}" Command="{Binding MaximizeCommand}" Style="{StaticResource MaximizeButton}"></Button>
-                    <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MinimizeButton}"></Button>
+                    <Button Command="{Binding MinimizeCommand}" Content="{Binding Source={StaticResource MinimizePath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
+                    <Button Content="{Binding Source={StaticResource SearchPath}, Converter={local:StringToGeometryConverter}}" Style="{StaticResource CaptionButton}"/>
                 </StackPanel>
             </Grid>
         </Border>
         <local:Sidebar MaxWidth="400" Grid.Column="0" Grid.RowSpan="2">
-            <StackPanel>
-                <Border Padding="5">
-                    <StackPanel Margin="0 30 0 0">
+            <StackPanel DataContext="{Binding DataContext,
+                    RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type Window}}}" >
+                <Border Padding="5" >
+                    <StackPanel  Margin="0 30 0 0">
                         <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource NewPath}" Text="Add new Plan"/>
                         <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource OpenPath}" Text="Open existing Plan"/>
                         <local:SidebarButton Style="{StaticResource SidebarButton}" PathData="{StaticResource SavePath}" Text="Save"/>
