@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolPlanner"
              mc:Ignorable="d" 
              x:Name="sidebar"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -17,8 +18,8 @@
                 <TextBlock Margin="10 0 0 0" Style="{StaticResource SidebarHeader}" VerticalAlignment="Center">Menu</TextBlock>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1">
+        <ScrollViewer VerticalScrollBarVisibility="{Binding Expanded, Converter={local:BoolToScrollbarVisibilityConverter}}" Grid.Row="1">
             <ContentPresenter Content="{Binding ElementName=sidebar,Path=Child}"/>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
