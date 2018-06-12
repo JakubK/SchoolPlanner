@@ -31,4 +31,7 @@
     <Color x:Key="PlansListViewItemHover">#ffb74d</Color>
     <SolidColorBrush x:Key="PlansListViewItemHoverBrush" Color="{StaticResource PlansListViewItemHover}"/>
 
+    <Color x:Key="DeleteButtonColor">#ef5350</Color>
+    <SolidColorBrush x:Key="DeleteButtonColorBrush" Color="{StaticResource DeleteButtonColor}"/>
+
 </ResourceDictionary>

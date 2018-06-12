@@ -49,6 +49,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock  Grid.Column="0" Grid.Row="0">Background Color</TextBlock>
                     <Rectangle  Grid.Column="1" Grid.Row="0" Fill="Red"/>
@@ -62,10 +63,11 @@
                         <ListViewItem>Ddd</ListViewItem>
                         <ListViewItem>Ddd</ListViewItem>
                     </ListView>
-                    <Button    Grid.Column="0" Grid.Row="4">+</Button>
-                    <Button Grid.Column="1" Grid.Row="4">-</Button>
+                    <TextBox Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <Button    Grid.Column="0" Grid.Row="5">+</Button>
+                    <Button Grid.Column="1" Grid.Row="5">-</Button>
 
-                    <Button Grid.Row="5" Grid.ColumnSpan="2">Delete</Button>
+                    <Button Style="{StaticResource DeleteButton}" Margin="0 10 0 0" Grid.Row="6" Grid.ColumnSpan="2">Delete</Button>
                 </Grid>
             </StackPanel>
         </Border>

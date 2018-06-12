@@ -3,17 +3,39 @@
                     xmlns:local="clr-namespace:SchoolPlanner">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="Icons.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type Button}" x:Key="DeleteButton">
+        <Setter Property="Background" Value="{StaticResource DeleteButtonColorBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                        <Canvas Name="canvas" Height="25"  Width="25">
+                            <Path Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Fill="White" />
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <Style TargetType="{x:Type Button}" x:Key="CaptionButton">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Width" Value="50"/>
-
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                    <Border Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
                         <Canvas Name="canvas" Height="25"  Width="25">
                             <Path Data="{TemplateBinding Content}" Fill="{StaticResource CaptionIconForegroundBrush}" />
                         </Canvas>
@@ -81,7 +103,7 @@
         <Setter Property="LayoutTransform">
             <Setter.Value>
                 <RotateTransform>
-                    <RotateTransform.Angle>90</RotateTransform.Angle>
+                    <RotateTransform.Angle>0</RotateTransform.Angle>
                 </RotateTransform>
             </Setter.Value>
         </Setter>
@@ -98,7 +120,7 @@
                 <Setter Property="LayoutTransform">
                     <Setter.Value>
                         <RotateTransform>
-                            <RotateTransform.Angle>0</RotateTransform.Angle>
+                            <RotateTransform.Angle>90</RotateTransform.Angle>
                         </RotateTransform>
                     </Setter.Value>
                 </Setter>
