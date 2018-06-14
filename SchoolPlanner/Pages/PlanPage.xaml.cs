@@ -19,12 +19,12 @@ namespace SchoolPlanner
     /// <summary>
     /// Logika interakcji dla klasy GridPage.xaml
     /// </summary>
-    public partial class GridPage : Page
+    public partial class PlanPage : Page
     {
-        public GridPage()
+        public PlanPage()
         {
             InitializeComponent();
-            this.DataContext = new GridPageViewModel();
+            this.DataContext = new PlanPageViewModel();
         }
     }
 }

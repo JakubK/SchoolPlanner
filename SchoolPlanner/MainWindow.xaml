@@ -113,7 +113,7 @@
                         UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </local:Sidebar>
-        <Frame Source="Pages/GridPage.xaml" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
+        <Frame Source="Pages/PlanPage.xaml" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
         </Frame>
     </Grid>
 </Window>

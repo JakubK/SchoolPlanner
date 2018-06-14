@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SchoolPlanner.ViewModels
 {
-    public class GridPageViewModel : BaseViewModel
+    public class PlanPageViewModel : BaseViewModel
     {
-        public GridPageViewModel()
+        public PlanPageViewModel()
         {
             Message = "Hello";
         }
