@@ -19,7 +19,6 @@ namespace SchoolPlanner.ViewModels
 
         public Path MaximizePath { get; set; }
 
-
         public MainViewModel(Window w)
         {
             this.Window = w;
@@ -38,6 +37,7 @@ namespace SchoolPlanner.ViewModels
                         Window.WindowState = WindowState.Normal;
                 }
             );
+
             this.MinimizeCommand = new RelayCommand(() => Window.WindowState = WindowState.Minimized);
 
             this.StateChangedCommand = new RelayCommand(() =>
@@ -77,6 +77,5 @@ namespace SchoolPlanner.ViewModels
         public ICommand StateChangedCommand { get; set; }
 
         public List<string> Plans { get; set; }
-
     }
 }

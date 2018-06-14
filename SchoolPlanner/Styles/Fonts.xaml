@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SchoolPlanner">
     <FontFamily x:Key="LatoRegular">pack://application;,,,/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="OpenSansRegular">pack://application;,,,/Fonts/#OpenSans Regular</FontFamily>
+    
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseFont">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="FontSize" Value="16"/>
@@ -10,5 +12,10 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style TargetType="{x:Type TextBlock}" x:Key="SidebarMenuItem">
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 </ResourceDictionary>
