@@ -1,4 +1,5 @@
-﻿using SchoolPlanner.ViewModels;
+﻿using SchoolPlanner.Models;
+using SchoolPlanner.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,11 @@ namespace SchoolPlanner
         }
         private static readonly DependencyProperty ListHeightProperty = DependencyProperty.Register(nameof(ListHeight), typeof(double), typeof(PlansListView), new PropertyMetadata());
 
-        public IEnumerable<string> ItemSource
+        public IEnumerable<Plan> ItemSource
         {
-            get { return (IEnumerable<string>)GetValue(ItemSourceProperty); }
+            get { return (IEnumerable<Plan>)GetValue(ItemSourceProperty); }
             set { SetValue(ItemSourceProperty, value); }
         }
-        private static readonly DependencyProperty ItemSourceProperty = DependencyProperty.Register(nameof(ItemSource), typeof(IEnumerable<string>), typeof(PlansListView), new PropertyMetadata());
+        private static readonly DependencyProperty ItemSourceProperty = DependencyProperty.Register(nameof(ItemSource), typeof(IEnumerable<Plan>), typeof(PlansListView), new PropertyMetadata());
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              x:Name="plansListView"
+             xmlns:models="clr-namespace:SchoolPlanner.Models"
              mc:Ignorable="d" 
              d:DesignHeight="120" d:DesignWidth="300">
     <UserControl.Resources>
@@ -16,7 +17,14 @@
             <CheckBox Style="{StaticResource SidebarCheckBox}" Command="{Binding SwitchItemsCommand}"/>
         </StackPanel>
         <Separator></Separator>
-        <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" Height="{Binding ListHeight}">
+        <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" MaxHeight="{Binding ListHeight}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type models:Plan}">
+                    <Grid>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource PlansListViewItem}"/>
             </ListView.ItemContainerStyle>

@@ -1,6 +1,8 @@
-﻿using SchoolPlanner.ViewModels.Base;
+﻿using SchoolPlanner.Models;
+using SchoolPlanner.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,26 +58,33 @@ namespace SchoolPlanner.ViewModels
                 OnPropertyChanged(nameof(MaximizePath));
             });
 
-            Plans = new List<string>();
+            this.CreatePlanCommand = new RelayCommand(CreatePlan);
 
-            Plans.Add("III AI");
-            Plans.Add("III BI");
-            Plans.Add("III CI");
-            Plans.Add("III DI");
-            Plans.Add("III DI");
-            Plans.Add("III DI");
-            Plans.Add("III DI");
-            Plans.Add("III DI");
+        }
 
-            Plans.Add("I AI");
+        private void CreatePlan()
+        {
+            Plans.Add(new Plan("Unnamed Plan"));
         }
 
         public ICommand CloseCommand { get; set; }
         public ICommand MaximizeCommand { get; set; }
         public ICommand MinimizeCommand { get; set; }
-
         public ICommand StateChangedCommand { get; set; }
 
-        public List<string> Plans { get; set; }
+        public ICommand CreatePlanCommand { get; set; }
+
+
+        private ObservableCollection<Plan> plans = new ObservableCollection<Plan>();
+
+        public ObservableCollection<Plan> Plans
+        {
+            get { return plans; }
+            set
+            {
+                plans = value;
+                OnPropertyChanged(nameof(Plans));
+            }
+        }
     }
 }

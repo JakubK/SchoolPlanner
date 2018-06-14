@@ -84,7 +84,7 @@
                     AncestorType={x:Type Window}}}" >
                     <Border Padding="5" >
                         <StackPanel  Margin="0 10 0 0">
-                            <local:SidebarButton Style="{StaticResource SidebarButton}"
+                            <local:SidebarButton Command="{Binding CreatePlanCommand}" Style="{StaticResource SidebarButton}"
                                                  PathData="{StaticResource NewPath}"
                                                  Text="Add new Plan"/>
                             <local:SidebarButton Style="{StaticResource SidebarButton}"
