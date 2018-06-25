@@ -25,8 +25,10 @@ namespace SchoolPlanner
         public PlansListView()
         {
             InitializeComponent();
-            this.DataContext = new PlansListViewViewModel();
+            this.DataContext = PlansListViewViewModel.Instance;
         }
+
+        public event SelectionChangedEventHandler SelectionChanged;
 
         public double ListHeight
         {
@@ -41,5 +43,10 @@ namespace SchoolPlanner
             set { SetValue(ItemSourceProperty, value); }
         }
         private static readonly DependencyProperty ItemSourceProperty = DependencyProperty.Register(nameof(ItemSource), typeof(IEnumerable<Plan>), typeof(PlansListView), new PropertyMetadata());
+
+        private void PlansListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectionChanged?.Invoke(sender, e);
+        }
     }
 }

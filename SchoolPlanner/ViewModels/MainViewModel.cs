@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -60,11 +61,17 @@ namespace SchoolPlanner.ViewModels
 
             this.CreatePlanCommand = new RelayCommand(CreatePlan);
 
+            this.SelectionChangedCommand = new RelayCommand(() => SwitchPlan());
         }
 
         private void CreatePlan()
         {
             Plans.Add(new Plan("Unnamed Plan"));
+        }
+
+        private void SwitchPlan()
+        {
+            PlanPageViewModel.Instance.Plan = Plans[PlansListViewViewModel.Instance.SelectedIndex];
         }
 
         public ICommand CloseCommand { get; set; }
@@ -73,6 +80,8 @@ namespace SchoolPlanner.ViewModels
         public ICommand StateChangedCommand { get; set; }
 
         public ICommand CreatePlanCommand { get; set; }
+
+        public ICommand SelectionChangedCommand { get; set; }
 
 
         private ObservableCollection<Plan> plans = new ObservableCollection<Plan>();

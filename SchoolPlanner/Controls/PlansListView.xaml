@@ -17,7 +17,7 @@
             <CheckBox Style="{StaticResource SidebarCheckBox}" Command="{Binding SwitchItemsCommand}"/>
         </StackPanel>
         <Separator></Separator>
-        <ListView ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" MaxHeight="{Binding ListHeight}">
+        <ListView SelectedIndex="{Binding SelectedIndex}" SelectionChanged="PlansListView_SelectionChanged" ItemsSource="{Binding ElementName=plansListView,Path=ItemSource}" BorderBrush="Transparent" Background="Transparent" MaxHeight="{Binding ListHeight}">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="{x:Type models:Plan}">
                     <Grid>

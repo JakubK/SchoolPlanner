@@ -10,7 +10,10 @@ namespace SchoolPlanner.ViewModels
 {
     public class PlansListViewViewModel : BaseViewModel
     {
-        public PlansListViewViewModel()
+        private static PlansListViewViewModel instance = new PlansListViewViewModel();
+        public static PlansListViewViewModel Instance { get { return instance; } }
+
+        private PlansListViewViewModel()
         {
             SwitchItemsCommand = new RelayCommand(() => ListHeight = ListHeight == 200 ? 0 : 200);
         }
@@ -23,6 +26,17 @@ namespace SchoolPlanner.ViewModels
             {
                 listHeight = value;
                 OnPropertyChanged(nameof(ListHeight));
+            }
+        }
+
+        private int selectedIndex = 0;
+        public int SelectedIndex
+        {
+            get { return selectedIndex; }
+            set
+            {
+                selectedIndex = value;
+                OnPropertyChanged(nameof(SelectedIndex));
             }
         }
 

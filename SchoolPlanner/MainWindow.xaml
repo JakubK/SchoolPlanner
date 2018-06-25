@@ -98,14 +98,21 @@
                                                  Text="Save all"/>
                         </StackPanel>
                     </Border>
-                    <local:PlansListView Visibility="{Binding DataContext.Expanded,
+                <local:PlansListView Visibility="{Binding DataContext.Expanded,
                     RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type local:Sidebar}},
                         Converter={local:BoolToVisibilityConverter},
                         UpdateSourceTrigger=PropertyChanged}" ListHeight="200" 
                                      ItemSource="{Binding DataContext.Plans,
                     RelativeSource={RelativeSource FindAncestor, 
-                    AncestorType={x:Type Window}}}"/>
+                    AncestorType={x:Type Window}}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding DataContext.SelectionChangedCommand,RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type Window}}}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </local:PlansListView>
                 <local:PropertiesEditor Visibility="{Binding DataContext.Expanded,
                     RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type local:Sidebar}},
