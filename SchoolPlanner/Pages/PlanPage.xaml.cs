@@ -24,7 +24,7 @@ namespace SchoolPlanner
         public PlanPage()
         {
             InitializeComponent();
-            this.DataContext = new PlanPageViewModel();
+            this.DataContext = PlanPageViewModel.Instance;
         }
     }
 }
