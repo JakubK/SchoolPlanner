@@ -75,6 +75,7 @@
     <Compile Include="Converters\BoolToScrollbarVisibilityConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\StringToGeometryConverter.cs" />
+    <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\Plan.cs" />
     <Compile Include="Pages\PlanPage.xaml.cs">
       <DependentUpon>PlanPage.xaml</DependentUpon>
