@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:models="clr-namespace:SchoolPlanner.Models"
-      xmlns:local="clr-namespace:SchoolPlanner"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="605.202"
       Title="GridPage">
@@ -14,6 +13,8 @@
         <Style TargetType="{x:Type ContentPresenter}">
           <Setter Property="Grid.Column" Value="{Binding Path=X}"/>
           <Setter Property="Grid.Row" Value="{Binding Path=Y}"/>
+          <Setter Property="Grid.RowSpan" Value="{Binding Path=SpanY}"/>
+          <Setter Property="Grid.ColumnSpan" Value="{Binding Path=SpanX}"/>
         </Style>
       </ItemsControl.Resources>
       <ItemsControl.ItemsPanel>
@@ -37,7 +38,7 @@
       <ItemsControl.ItemTemplate>
         <DataTemplate DataType="{x:Type models:Cell}">
           <Grid Background="Red">
-            <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding X}"/>
+            <TextBlock  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Text}"/>
           </Grid>
         </DataTemplate>
       </ItemsControl.ItemTemplate>

@@ -54,6 +54,9 @@ namespace SchoolPlanner.ViewModels
                 {
                     this.Window.Padding = new Thickness(0);
                     MaximizePath = MaximizeIcon;
+                    //PlanPageViewModel.Instance.Plan.Cells.Clear();
+                    PlanPageViewModel.Instance.Plan.Cells[1].Text = "Dddd";
+                    System.Diagnostics.Debug.WriteLine("Dddd");
                 }
 
                 OnPropertyChanged(nameof(MaximizePath));

@@ -41,6 +41,7 @@ namespace SchoolPlanner.Models
                         Cell cell = new Cell();
                         cell.X = x + 1;
                         cell.Y = y + 1;
+                       // cell.Text = "Text";
 
                         if (x == 0 || y == 0)
                         {
@@ -51,6 +52,22 @@ namespace SchoolPlanner.Models
                         cells.Add(cell);
                     }
                 }
+
+                //Create administrative cells
+                Cell left = new Cell();
+                left.X = 0;
+                left.Y = 1;
+
+
+                left.SpanY = 3;
+                cells.Add(left);
+
+                Cell top = new Cell();
+                top.X = 1;
+                top.Y = 0;
+
+                top.SpanX = 3;
+                cells.Add(top);
             }
         }
 
