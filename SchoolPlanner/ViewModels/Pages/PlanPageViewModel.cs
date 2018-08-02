@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SchoolPlanner.ViewModels
 {
@@ -15,6 +16,12 @@ namespace SchoolPlanner.ViewModels
 
         private PlanPageViewModel()
         {
+            RemoveCellCommand = new ParameterRelayCommand(id => RemoveCell(id));
+        }
+
+        private void RemoveCell(object id)
+        {
+
         }
 
         private Plan plan;
@@ -27,5 +34,17 @@ namespace SchoolPlanner.ViewModels
                 OnPropertyChanged(nameof(Plan));
             }
         }
+
+        public ICommand RemoveCellCommand { get; set; }
+
+        public ICommand AddRowCommand { get; set; }
+        public ICommand AddColumnCommand { get; set; }
+
+        public ICommand DropColumnCommand { get; set; }
+        public ICommand DropRowCommand { get; set; }
+
+        public ICommand SwitchPlanCommand { get; set; }
+
+        public ICommand CellClickCommand { get; set; }
     }
 }
