@@ -1,11 +1,18 @@
-﻿<UserControl x:Class="SchoolPlanner.CellComponent"
+﻿<UserControl x:Class="SchoolPlanner.Cell"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolPlanner"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-  <Grid Background="Blue">
+  <Button Command="{Binding ClickCellCommand}" Background="{Binding Background}">
+    <Button.CommandParameter>
+      <MultiBinding Converter="{local:IntsToCellRequestConverter}">
+        <Binding Path="X"/>
+        <Binding Path="Y"/>
+      </MultiBinding>
+    </Button.CommandParameter>
     <TextBlock  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Text}"/>
-  </Grid>
+  </Button>
 </UserControl>

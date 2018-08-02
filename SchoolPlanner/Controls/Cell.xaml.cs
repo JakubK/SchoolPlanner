@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolPlanner.Models;
+using SchoolPlanner.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +20,9 @@ namespace SchoolPlanner
     /// <summary>
     /// Logika interakcji dla klasy CellComponent.xaml
     /// </summary>
-    public partial class CellComponent : UserControl
+    public partial class Cell : UserControl
     {
-        public CellComponent()
+        public Cell()
         {
             InitializeComponent();
         }
