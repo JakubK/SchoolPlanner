@@ -13,7 +13,8 @@ namespace SchoolPlanner.ViewModels.Base
 
         public void OnPropertyChanged(string name)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
+            if(PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
     }
 }
