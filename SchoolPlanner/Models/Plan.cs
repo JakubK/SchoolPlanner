@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolPlanner.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,8 +16,8 @@ namespace SchoolPlanner.Models
         public bool Saved { get; set; }
         public bool Located { get; set; }
 
-        private ObservableCollection<Cell> cells;
-        public ObservableCollection<Cell> Cells
+        private ObservableCollection<CellViewModel> cells;
+        public ObservableCollection<CellViewModel> Cells
         {
             get { return cells; }
             set {
@@ -30,25 +31,19 @@ namespace SchoolPlanner.Models
             this.Name = name;
             this.Saved = saved;
             this.Located = located;
-
+            
             if(!Located && !Saved) //Create basic Cell structure if we created a new file (administrative cells are ommited here)
             {
-                cells = new ObservableCollection<Cell>();
-                for (int y = 0; y < 2; y++)
+                cells = new ObservableCollection<CellViewModel>();
+                for (int y = 1; y < 3; y++)
                 {
-                    for (int x = 0; x < 2; x++)
+                    for (int x = 1; x < 3; x++)
                     {
-                        Cell cell = new Cell();
-                        cell.X = x + 1;
-                        cell.Y = y + 1;
-                       // cell.Text = "Text";
-
-                        if (x == 0 || y == 0)
-                        {
-                            cell.Background = Colors.Azure;
-                            cell.Foreground = Colors.White;
-                        }
-
+                        CellViewModel cell = new CellViewModel();
+                        cell.X = x;
+                        cell.Y = y;
+                        cell.Text = "Text";
+                        cell.Background = Brushes.Violet;
                         cells.Add(cell);
                     }
                 }
@@ -58,33 +53,42 @@ namespace SchoolPlanner.Models
                 int xCells = 3;
                 for(int x = 1;x < xCells;x++)
                 {
-                    cells.Add(new Cell()
+                    cells.Add(new CellViewModel()
                     {
                         X = x,
-                        Y = 0
+                        Y = 0,
+                        Background = Brushes.Blue,
+                        Text = "Remove column " + x
                     });
                 }
 
                 int yCells = 3;
                 for (int y = 1; y < yCells; y++)
                 {
-                    cells.Add(new Cell()
+                    cells.Add(new CellViewModel()
                     {
                         X = 0,
-                        Y = y
+                        Y = y,
+                        Background = Brushes.Blue,
+                        Text = "Remove row " + y
+
                     });
                 }
 
-                Cell bottom = new Cell();
+                CellViewModel bottom = new CellViewModel();
                 bottom.X = 0;
                 bottom.Y = 3;
-                bottom.SpanX = 4;
+                bottom.SpanX = 3;
+                bottom.Background = Brushes.Yellow;
+                bottom.Text = "Append new Row";
                 cells.Add(bottom);
 
-                Cell right = new Cell();
+                CellViewModel right = new CellViewModel();
                 right.X = 3;
                 right.Y = 0;
-                right.SpanY = 4;
+                right.SpanY = 3;
+                right.Background = Brushes.Yellow;
+                right.Text = "Append new Column";
                 cells.Add(right);
             }
         }
