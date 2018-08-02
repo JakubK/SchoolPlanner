@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolPlanner"
-      xmlns:models="clr-namespace:SchoolPlanner.Models"
+      xmlns:vm="clr-namespace:SchoolPlanner.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="605.202"
       Title="GridPage">
@@ -22,23 +22,23 @@
         <ItemsPanelTemplate>
           <Grid ShowGridLines="True">
             <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="200"/>
+              <ColumnDefinition Width="200"/>
+              <ColumnDefinition Width="200"/>
+              <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-              <RowDefinition Height="*"/>
-              <RowDefinition Height="*"/>
-              <RowDefinition Height="*"/>
-              <RowDefinition Height="*"/>
+              <RowDefinition Height="200"/>
+              <RowDefinition Height="200"/>
+              <RowDefinition Height="200"/>
+              <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
           </Grid>
         </ItemsPanelTemplate>
       </ItemsControl.ItemsPanel>
       <ItemsControl.ItemTemplate>
-        <DataTemplate  DataType="{x:Type models:Cell}">
-          <local:CellComponent DataContext="{Binding}"/>
+        <DataTemplate DataType="{x:Type vm:CellViewModel}">
+          <local:Cell DataContext="{Binding}"/>
         </DataTemplate>
       </ItemsControl.ItemTemplate>
     </ItemsControl>
