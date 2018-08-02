@@ -54,20 +54,38 @@ namespace SchoolPlanner.Models
                 }
 
                 //Create administrative cells
-                Cell left = new Cell();
-                left.X = 0;
-                left.Y = 1;
 
+                int xCells = 3;
+                for(int x = 1;x < xCells;x++)
+                {
+                    cells.Add(new Cell()
+                    {
+                        X = x,
+                        Y = 0
+                    });
+                }
 
-                left.SpanY = 3;
-                cells.Add(left);
+                int yCells = 3;
+                for (int y = 1; y < yCells; y++)
+                {
+                    cells.Add(new Cell()
+                    {
+                        X = 0,
+                        Y = y
+                    });
+                }
 
-                Cell top = new Cell();
-                top.X = 1;
-                top.Y = 0;
+                Cell bottom = new Cell();
+                bottom.X = 0;
+                bottom.Y = 3;
+                bottom.SpanX = 4;
+                cells.Add(bottom);
 
-                top.SpanX = 3;
-                cells.Add(top);
+                Cell right = new Cell();
+                right.X = 3;
+                right.Y = 0;
+                right.SpanY = 4;
+                cells.Add(right);
             }
         }
 
