@@ -9,7 +9,7 @@
       d:DesignHeight="300" d:DesignWidth="605.202"
       Title="GridPage">
   <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-    <ItemsControl ItemsSource="{Binding Plan.Cells, UpdateSourceTrigger=PropertyChanged}">
+    <ItemsControl ItemsSource="{Binding Plan.Cells}">
       <ItemsControl.Resources>
         <Style TargetType="{x:Type ContentPresenter}">
           <Setter Property="Grid.Column" Value="{Binding Path=X}"/>
@@ -20,20 +20,7 @@
       </ItemsControl.Resources>
       <ItemsControl.ItemsPanel>
         <ItemsPanelTemplate>
-          <Grid ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="200"/>
-              <ColumnDefinition Width="200"/>
-              <ColumnDefinition Width="200"/>
-              <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="200"/>
-              <RowDefinition Height="200"/>
-              <RowDefinition Height="200"/>
-              <RowDefinition Height="200"/>
-            </Grid.RowDefinitions>
-          </Grid>
+          <local:DynamicGrid/>
         </ItemsPanelTemplate>
       </ItemsControl.ItemsPanel>
       <ItemsControl.ItemTemplate>
