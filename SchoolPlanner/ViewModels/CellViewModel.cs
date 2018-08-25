@@ -13,6 +13,17 @@ namespace SchoolPlanner.ViewModels
 {
     public class CellViewModel : BaseViewModel
     {
+        private CellType cellType = CellType.Regular;
+        public CellType CellType
+        {
+            get { return cellType; }
+            set
+            {
+                cellType = value;
+                OnPropertyChanged(nameof(CellType));
+            }
+        }
+
         private int x;
         public int X
         {
@@ -40,13 +51,41 @@ namespace SchoolPlanner.ViewModels
                 OnPropertyChanged(nameof(Y));
             }
         }
-        public int SpanY { get; set; } = 1;
-        public int SpanX { get; set; } = 1;
 
+        private int spanY = 1;
+        public int SpanY
+        {
+            get
+            {
+                return spanY;
+            }
+            set
+            {
+                spanY = value;
+                OnPropertyChanged(nameof(SpanY));
+            }
+        }
+
+        private int spanX = 1;
+        public int SpanX
+        {
+            get
+            {
+                return spanX;
+            }
+            set
+            {
+                spanX = value;
+                OnPropertyChanged(nameof(SpanX));
+            }
+        }
         private string text;
-        public string Text {
+        public string Text
+        {
             get { return text; }
-            set { text = value;
+            set
+            {
+                text = value;
                 OnPropertyChanged(nameof(Text));
             }
         }
@@ -63,8 +102,7 @@ namespace SchoolPlanner.ViewModels
 
         private void DoSomething(object param)
         {
-            CellRequest rq = (CellRequest)param;
-            System.Diagnostics.Debug.WriteLine(rq.X + " and " + rq.Y);
+            PlanPageViewModel.Instance.CellClickCommand.Execute(param);
         }
     }
 }
