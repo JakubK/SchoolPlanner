@@ -62,8 +62,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\CellComponent.xaml.cs">
-      <DependentUpon>CellComponent.xaml</DependentUpon>
+    <Compile Include="Controls\Cell.xaml.cs">
+      <DependentUpon>Cell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DynamicGrid.xaml.cs">
+      <DependentUpon>DynamicGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PlansListView.xaml.cs">
       <DependentUpon>PlansListView.xaml</DependentUpon>
@@ -74,23 +77,31 @@
     <Compile Include="Controls\SidebarButton.xaml.cs">
       <DependentUpon>SidebarButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\Base\BaseMultiValueConverter.cs" />
     <Compile Include="Converters\Base\BaseValueConverter.cs" />
     <Compile Include="Converters\BoolToScrollbarVisibilityConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntsToCellRequestConverter.cs" />
     <Compile Include="Converters\StringToGeometryConverter.cs" />
-    <Compile Include="Models\Cell.cs" />
+    <Compile Include="ViewModels\CellViewModel.cs" />
+    <Compile Include="Models\CellRequest.cs" />
     <Compile Include="Models\Plan.cs" />
     <Compile Include="Pages\PlanPage.xaml.cs">
       <DependentUpon>PlanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Base\ParameterRelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Pages\PlanPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PlansListViewViewModel.cs" />
     <Compile Include="ViewModels\PropertiesEditorViewModel.cs" />
     <Compile Include="ViewModels\SidebarViewModel.cs" />
-    <Page Include="Controls\CellComponent.xaml">
+    <Page Include="Controls\Cell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DynamicGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +190,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

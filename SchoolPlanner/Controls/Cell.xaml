@@ -11,6 +11,7 @@
       <MultiBinding Converter="{local:IntsToCellRequestConverter}">
         <Binding Path="X"/>
         <Binding Path="Y"/>
+        <Binding Path="CellType"/>
       </MultiBinding>
     </Button.CommandParameter>
     <TextBlock  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Text}"/>

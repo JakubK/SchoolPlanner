@@ -16,7 +16,8 @@ namespace SchoolPlanner
             return new CellRequest
             {
                 X = (int)values[0],
-                Y = (int)values[1]
+                Y = (int)values[1],
+                CellType = (CellType)values[2]
             };
         }
 

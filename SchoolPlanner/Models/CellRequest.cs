@@ -10,5 +10,16 @@ namespace SchoolPlanner.Models
     {
         public int X { get; set; }
         public int Y { get; set; }
+
+        public CellType CellType { get; set; }
+    }
+
+    public enum CellType
+    {
+        Regular,
+        RowAppend,
+        ColumnAppend,
+        ColumnRemove,
+        RowRemove
     }
 }
