@@ -16,13 +16,35 @@ namespace SchoolPlanner.Models
         public bool Saved { get; set; }
         public bool Located { get; set; }
 
-        private ObservableCollection<CellViewModel> cells;
+        private ObservableCollection<CellViewModel> cells = new ObservableCollection<CellViewModel>();
         public ObservableCollection<CellViewModel> Cells
         {
             get { return cells; }
             set {
                 cells = value;
-                OnPropertyChanged(nameof(Plan));
+                OnPropertyChanged(nameof(Cells));
+            }
+        }
+
+        private CellViewModel addColumn;
+        public CellViewModel AddColumn
+        {
+            get { return addColumn; }
+            set
+            {
+                addColumn = value;
+                OnPropertyChanged(nameof(AddColumn));
+            }
+        }
+
+        private CellViewModel addRow;
+        public CellViewModel AddRow
+        {
+            get { return addRow; }
+            set
+            {
+                addRow = value;
+                OnPropertyChanged(nameof(AddRow));
             }
         }
 
@@ -34,7 +56,6 @@ namespace SchoolPlanner.Models
             
             if(!Located && !Saved) //Create basic Cell structure if we created a new file (administrative cells are ommited here)
             {
-                cells = new ObservableCollection<CellViewModel>();
                 for (int y = 1; y < 3; y++)
                 {
                     for (int x = 1; x < 3; x++)
@@ -44,7 +65,7 @@ namespace SchoolPlanner.Models
                         cell.Y = y;
                         cell.Text = "Text";
                         cell.Background = Brushes.Violet;
-                        cells.Add(cell);
+                        Cells.Add(cell);
                     }
                 }
 
@@ -53,11 +74,12 @@ namespace SchoolPlanner.Models
                 int xCells = 3;
                 for(int x = 1;x < xCells;x++)
                 {
-                    cells.Add(new CellViewModel()
+                    Cells.Add(new CellViewModel()
                     {
                         X = x,
                         Y = 0,
                         Background = Brushes.Blue,
+                        CellType = CellType.ColumnRemove,
                         Text = "Remove column " + x
                     });
                 }
@@ -65,11 +87,12 @@ namespace SchoolPlanner.Models
                 int yCells = 3;
                 for (int y = 1; y < yCells; y++)
                 {
-                    cells.Add(new CellViewModel()
+                    Cells.Add(new CellViewModel()
                     {
                         X = 0,
                         Y = y,
                         Background = Brushes.Blue,
+                        CellType = CellType.RowRemove,
                         Text = "Remove row " + y
 
                     });
@@ -81,7 +104,9 @@ namespace SchoolPlanner.Models
                 bottom.SpanX = 3;
                 bottom.Background = Brushes.Yellow;
                 bottom.Text = "Append new Row";
-                cells.Add(bottom);
+                bottom.CellType = CellType.RowAppend;
+                addRow = bottom;
+                Cells.Add(bottom);
 
                 CellViewModel right = new CellViewModel();
                 right.X = 3;
@@ -89,7 +114,9 @@ namespace SchoolPlanner.Models
                 right.SpanY = 3;
                 right.Background = Brushes.Yellow;
                 right.Text = "Append new Column";
-                cells.Add(right);
+                right.CellType = CellType.ColumnAppend;
+                addColumn = right;
+                Cells.Add(right);
             }
         }
 
