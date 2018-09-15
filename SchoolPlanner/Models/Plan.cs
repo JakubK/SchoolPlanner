@@ -73,7 +73,7 @@ namespace SchoolPlanner.Models
                 //Create administrative cells
 
                 int xCells = 3;
-                Style style = (Style)Application.Current.Resources["RemoveButton"];
+                Style style = (Style)Application.Current.Resources["DeleteButton"];
                 for (int x = 1;x < xCells;x++)
                 {
                     Cells.Add(new CellViewModel()
@@ -104,6 +104,7 @@ namespace SchoolPlanner.Models
                 bottom.Background = Brushes.Yellow;
                 bottom.Text = "Append new Row";
                 bottom.CellType = CellType.RowAppend;
+                bottom.Style = (Style)Application.Current.Resources["AddRowButton"];
                 addRow = bottom;
                 Cells.Add(bottom);
 
@@ -114,6 +115,7 @@ namespace SchoolPlanner.Models
                 right.Background = Brushes.Yellow;
                 right.Text = "Append new Column";
                 right.CellType = CellType.ColumnAppend;
+                right.Style = (Style)Application.Current.Resources["AddColumnButton"];
                 addColumn = right;
                 Cells.Add(right);
             }
