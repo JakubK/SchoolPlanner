@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SchoolPlanner"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-  <Button Command="{Binding ClickCellCommand}" Background="{Binding Background}">
+  <Button Margin="10" Command="{Binding ClickCellCommand}" Background="{Binding Background}">
     <Button.CommandParameter>
       <MultiBinding Converter="{local:IntsToCellRequestConverter}">
         <Binding Path="X"/>

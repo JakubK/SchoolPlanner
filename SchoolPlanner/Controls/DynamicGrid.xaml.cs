@@ -31,6 +31,8 @@ namespace SchoolPlanner
         {
             base.OnVisualChildrenChanged(visualAdded, visualRemoved);
 
+            //Add new column or row if the new Cell has greater X or Y and the DynamicGrid currently offers
+
             if(PlanPageViewModel.Instance.Plan.Cells[PlanPageViewModel.Instance.Plan.Cells.Count-1].X == this.ColumnDefinitions.Count-1)
             {
                 this.ColumnDefinitions.Add(new ColumnDefinition()
