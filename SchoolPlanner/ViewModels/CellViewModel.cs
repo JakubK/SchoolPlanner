@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -13,6 +14,17 @@ namespace SchoolPlanner.ViewModels
 {
     public class CellViewModel : BaseViewModel
     {
+        private Style style;
+        public Style Style
+        {
+            get { return style; }
+            set
+            {
+                style = value;
+                OnPropertyChanged(nameof(Style));
+            }
+        }
+
         private CellType cellType = CellType.Regular;
         public CellType CellType
         {
