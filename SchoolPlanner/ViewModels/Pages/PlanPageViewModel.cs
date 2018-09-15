@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -47,8 +48,7 @@ namespace SchoolPlanner.ViewModels
 
             Plan.Cells.Add(new CellViewModel
             {
-                Text = "Remove Row " + y,
-                Background = Brushes.Blue,
+                Style = Application.Current.FindResource("DeleteButton") as Style,
                 CellType = CellType.RowRemove,
                 X = 0,
                 Y = y,
@@ -76,8 +76,7 @@ namespace SchoolPlanner.ViewModels
 
             Plan.Cells.Add(new CellViewModel
             {
-                Text = "Remove Column",
-                Background = Brushes.Blue,
+                Style = Application.Current.FindResource("DeleteButton") as Style,
                 CellType = CellType.ColumnRemove,
                 X = x,
                 Y = 0,

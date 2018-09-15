@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace SchoolPlanner.Models
@@ -72,15 +73,15 @@ namespace SchoolPlanner.Models
                 //Create administrative cells
 
                 int xCells = 3;
-                for(int x = 1;x < xCells;x++)
+                Style style = (Style)Application.Current.Resources["RemoveButton"];
+                for (int x = 1;x < xCells;x++)
                 {
                     Cells.Add(new CellViewModel()
                     {
                         X = x,
                         Y = 0,
-                        Background = Brushes.Blue,
                         CellType = CellType.ColumnRemove,
-                        Text = "Remove column " + x
+                        Style = style
                     });
                 }
 
@@ -91,10 +92,8 @@ namespace SchoolPlanner.Models
                     {
                         X = 0,
                         Y = y,
-                        Background = Brushes.Blue,
                         CellType = CellType.RowRemove,
-                        Text = "Remove row " + y
-
+                        Style = style
                     });
                 }
 
