@@ -30,6 +30,7 @@ namespace SchoolPlanner
         protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
         {
             base.OnVisualChildrenChanged(visualAdded, visualRemoved);
+
             if(PlanPageViewModel.Instance.Plan.Cells[PlanPageViewModel.Instance.Plan.Cells.Count-1].X == this.ColumnDefinitions.Count-1)
             {
                 this.ColumnDefinitions.Add(new ColumnDefinition()
@@ -45,18 +46,6 @@ namespace SchoolPlanner
                     Height = new GridLength(200, GridUnitType.Pixel)
                 });
             }
-        }
-
-        private void Cells_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-        }
-
-        private void DynamicGrid_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-        }
-
-        private void DynamicGrid_KeyDown(object sender, KeyEventArgs e)
-        {
         }
     }
 }
