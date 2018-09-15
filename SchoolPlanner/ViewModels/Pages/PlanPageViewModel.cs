@@ -2,6 +2,7 @@
 using SchoolPlanner.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,8 +51,9 @@ namespace SchoolPlanner.ViewModels
 
                 Plan.Cells.Add(new CellViewModel
                 {
-                    Text = "Remove Column",
+                    Text = "Remove Row " + y,
                     Background = Brushes.Blue,
+                    CellType = CellType.RowRemove,
                     X = 0,
                     Y = y,
                     SpanX = 1,
@@ -64,7 +66,6 @@ namespace SchoolPlanner.ViewModels
                 int x = cellRequest.X;
                 Plan.AddColumn.X++;
                 Plan.AddRow.SpanX++;
-                Plan.AddRow.SpanY++;
                 for (int i = 1; i < Plan.AddColumn.SpanY; i++)
                 {
                     Plan.Cells.Add(new CellViewModel
@@ -81,11 +82,82 @@ namespace SchoolPlanner.ViewModels
                 {
                     Text = "Remove Column",
                     Background = Brushes.Blue,
+                    CellType = CellType.ColumnRemove,
                     X = x,
                     Y = 0,
                     SpanX = 1,
                     SpanY = 1
                 });
+            }
+            else if(cellRequest.CellType == CellType.RowRemove)
+            {
+                //Remove row of the cell
+                int startY = cellRequest.Y;
+                int maxY = cellRequest.Y;
+            
+                for (int i = 0;i < Plan.Cells.Count;i++) //find max Y
+                {
+                    if (Plan.Cells[i].Y > maxY)
+                        maxY = Plan.Cells[i].Y;
+                }
+
+                for(int y = startY; y <= maxY ;y++)
+                {
+                    if (y == startY)
+                    {
+                        var cells = Plan.Cells.Where(x => x.Y == y).ToList();
+                        for (int i = 0; i < cells.Count(); i++)
+                        {
+                            Plan.Cells.Remove(cells[i]);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < Plan.Cells.Count; i++)
+                        {
+                            if (Plan.Cells[i].Y == y)
+                            {
+                                Plan.Cells[i].Y--;
+                            }
+                        }
+                    }
+                }
+                Plan.AddColumn.SpanY--;
+                
+            }
+            else if(cellRequest.CellType == CellType.ColumnRemove)
+            {
+                int startX = cellRequest.X;
+                int maxX = cellRequest.X;
+
+                for (int i = 0; i < Plan.Cells.Count; i++) //find max X
+                {
+                    if (Plan.Cells[i].X > maxX)
+                        maxX = Plan.Cells[i].X;
+                }
+
+                for (int x = startX; x <= maxX; x++)
+                {
+                    if (x == startX)
+                    {
+                        var cells = Plan.Cells.Where(c => c.X == x).ToList();
+                        for (int i = 0; i < cells.Count(); i++)
+                        {
+                            Plan.Cells.Remove(cells[i]);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < Plan.Cells.Count; i++)
+                        {
+                            if (Plan.Cells[i].X == x)
+                            {
+                                Plan.Cells[i].X--;
+                            }
+                        }
+                    }
+                }
+                Plan.AddRow.SpanX--;
             }
         }
 
