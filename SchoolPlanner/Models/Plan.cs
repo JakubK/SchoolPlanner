@@ -99,9 +99,9 @@ namespace SchoolPlanner.Models
                 }
 
                 CellViewModel bottom = new CellViewModel();
-                bottom.X = 0;
+                bottom.X = 1;
                 bottom.Y = 3;
-                bottom.SpanX = 3;
+                bottom.SpanX = 2;
                 bottom.Background = Brushes.Yellow;
                 bottom.Text = "Append new Row";
                 bottom.CellType = CellType.RowAppend;
@@ -110,8 +110,8 @@ namespace SchoolPlanner.Models
 
                 CellViewModel right = new CellViewModel();
                 right.X = 3;
-                right.Y = 0;
-                right.SpanY = 3;
+                right.Y = 1;
+                right.SpanY = 2;
                 right.Background = Brushes.Yellow;
                 right.Text = "Append new Column";
                 right.CellType = CellType.ColumnAppend;

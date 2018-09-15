@@ -18,94 +18,87 @@ namespace SchoolPlanner.ViewModels
 
         private PlanPageViewModel()
         {
-            RemoveCellCommand = new ParameterRelayCommand(id => RemoveCell(id));
-
             CellClickCommand = new ParameterRelayCommand(query => CellClick(query));
+
+            AppendRowCommand = new ParameterRelayCommand(cellRequest => AppendRow((CellRequest)cellRequest));
+            AppendColumnCommand = new ParameterRelayCommand(cellRequest => AppendColumn((CellRequest)cellRequest));
+
+            RemoveRowCommand = new ParameterRelayCommand(cellRequest => RemoveRow((CellRequest)cellRequest));
+            RemoveColumnCommand = new ParameterRelayCommand(cellRequest => RemoveColumn((CellRequest)cellRequest));
         }
 
-        private void RemoveCell(object id)
+        private void AppendRow(CellRequest cellRequest)
         {
+            int y = cellRequest.Y;
+            Plan.AddRow.Y++;
+            Plan.AddColumn.SpanY++;
 
-        }
-
-        private void CellClick(object query)
-        {
-            CellRequest cellRequest = (CellRequest)query;
-            if (cellRequest.CellType == CellType.RowAppend)
+            for (int i = 1; i <= Plan.AddRow.SpanX; i++)
             {
-                int y = cellRequest.Y;
-                Plan.AddRow.Y++;
-                Plan.AddColumn.SpanY++;
-
-                for(int i = 1;i < Plan.AddRow.SpanX;i++)
-                {
-                    Plan.Cells.Add(new CellViewModel
-                    {
-                        Text = "Text",
-                        Background = Brushes.Violet,
-                        X = i,
-                        Y = y,
-                        SpanY = 1
-                    });
-                }
-
                 Plan.Cells.Add(new CellViewModel
                 {
-                    Text = "Remove Row " + y,
-                    Background = Brushes.Blue,
-                    CellType = CellType.RowRemove,
-                    X = 0,
+                    Text = "Text",
+                    Background = Brushes.Violet,
+                    X = i,
                     Y = y,
-                    SpanX = 1,
                     SpanY = 1
                 });
-
             }
-            else if(cellRequest.CellType == CellType.ColumnAppend)
-            {
-                int x = cellRequest.X;
-                Plan.AddColumn.X++;
-                Plan.AddRow.SpanX++;
-                for (int i = 1; i < Plan.AddColumn.SpanY; i++)
-                {
-                    Plan.Cells.Add(new CellViewModel
-                    {
-                        Text = "Text",
-                        Background = Brushes.Violet,
-                        X = x,
-                        Y = i,
-                        SpanY = 1
-                    });
-                }
 
+            Plan.Cells.Add(new CellViewModel
+            {
+                Text = "Remove Row " + y,
+                Background = Brushes.Blue,
+                CellType = CellType.RowRemove,
+                X = 0,
+                Y = y,
+                SpanX = 1,
+                SpanY = 1
+            });
+        }
+
+        private void AppendColumn(CellRequest cellRequest)
+        {
+            int x = cellRequest.X;
+            Plan.AddColumn.X++;
+            Plan.AddRow.SpanX++;
+            for (int i = 1; i <= Plan.AddColumn.SpanY; i++)
+            {
                 Plan.Cells.Add(new CellViewModel
                 {
-                    Text = "Remove Column",
-                    Background = Brushes.Blue,
-                    CellType = CellType.ColumnRemove,
+                    Text = "Text",
+                    Background = Brushes.Violet,
                     X = x,
-                    Y = 0,
-                    SpanX = 1,
+                    Y = i,
                     SpanY = 1
                 });
             }
-            else if(cellRequest.CellType == CellType.RowRemove)
-            {
-                //Remove row of the cell
-                int startY = cellRequest.Y;
-                int maxY = cellRequest.Y;
-            
-                for (int i = 0;i < Plan.Cells.Count;i++) //find max Y
-                {
-                    if (Plan.Cells[i].Y > maxY)
-                        maxY = Plan.Cells[i].Y;
-                }
 
-                for(int y = startY; y <= maxY ;y++)
+            Plan.Cells.Add(new CellViewModel
+            {
+                Text = "Remove Column",
+                Background = Brushes.Blue,
+                CellType = CellType.ColumnRemove,
+                X = x,
+                Y = 0,
+                SpanX = 1,
+                SpanY = 1
+            });
+        }
+
+        private void RemoveRow(CellRequest cellRequest)
+        {
+            //Remove row of the cell
+            if (Plan.AddColumn.SpanY > 1)
+            {
+                int startY = cellRequest.Y;
+                int maxY = Plan.AddRow.Y;
+
+                for (int y = startY; y <= maxY; y++)
                 {
                     if (y == startY)
                     {
-                        var cells = Plan.Cells.Where(x => x.Y == y).ToList();
+                        var cells = Plan.Cells.Where(x => x.Y == y && x != Plan.AddColumn).ToList();
                         for (int i = 0; i < cells.Count(); i++)
                         {
                             Plan.Cells.Remove(cells[i]);
@@ -123,24 +116,21 @@ namespace SchoolPlanner.ViewModels
                     }
                 }
                 Plan.AddColumn.SpanY--;
-                
             }
-            else if(cellRequest.CellType == CellType.ColumnRemove)
+        }
+
+        private void RemoveColumn(CellRequest cellRequest)
+        {
+            if (Plan.AddRow.SpanX > 1)
             {
                 int startX = cellRequest.X;
-                int maxX = cellRequest.X;
-
-                for (int i = 0; i < Plan.Cells.Count; i++) //find max X
-                {
-                    if (Plan.Cells[i].X > maxX)
-                        maxX = Plan.Cells[i].X;
-                }
+                int maxX = Plan.AddColumn.X;
 
                 for (int x = startX; x <= maxX; x++)
                 {
                     if (x == startX)
                     {
-                        var cells = Plan.Cells.Where(c => c.X == x).ToList();
+                        var cells = Plan.Cells.Where(c => c.X == x && c != Plan.AddRow).ToList();
                         for (int i = 0; i < cells.Count(); i++)
                         {
                             Plan.Cells.Remove(cells[i]);
@@ -161,6 +151,27 @@ namespace SchoolPlanner.ViewModels
             }
         }
 
+        private void CellClick(object query)
+        {
+            CellRequest cellRequest = (CellRequest)query;
+            if (cellRequest.CellType == CellType.RowAppend)
+            {
+                AppendRowCommand.Execute(cellRequest);
+            }
+            else if(cellRequest.CellType == CellType.ColumnAppend)
+            {
+                AppendColumnCommand.Execute(cellRequest);
+            }
+            else if(cellRequest.CellType == CellType.RowRemove)
+            {
+                RemoveRowCommand.Execute(cellRequest);
+            }
+            else if(cellRequest.CellType == CellType.ColumnRemove)
+            {
+                RemoveColumnCommand.Execute(cellRequest);
+            }
+        }
+
         private Plan plan;
         public Plan Plan
         {
@@ -172,13 +183,13 @@ namespace SchoolPlanner.ViewModels
             }
         }
 
-        public ICommand RemoveCellCommand { get; set; }
+        public ICommand AppendRowCommand { get; set; }
 
-        public ICommand AddRowCommand { get; set; }
-        public ICommand AddColumnCommand { get; set; }
+        public ICommand AppendColumnCommand { get; set; }
 
-        public ICommand DropColumnCommand { get; set; }
-        public ICommand DropRowCommand { get; set; }
+        public ICommand RemoveColumnCommand { get; set; }
+
+        public ICommand RemoveRowCommand { get; set; }
 
         public ICommand SwitchPlanCommand { get; set; }
 
